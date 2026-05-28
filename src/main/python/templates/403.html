@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Acceso denegado | Flask Auth Empleados{% endblock %}
+
+{% block content %}
+<section class="single-card-layout">
+    <article class="protected-card denied">
+        <div class="status-pill error">403</div>
+        <h1>Acceso denegado</h1>
+        <p>No tienes el rol necesario para acceder a esta ruta.</p>
+        <div class="button-group centered">
+            <a class="btn btn-primary" href="{{ url_for('index') }}">Volver</a>
+            <a class="btn btn-danger" href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+    </article>
+</section>
+{% endblock %}

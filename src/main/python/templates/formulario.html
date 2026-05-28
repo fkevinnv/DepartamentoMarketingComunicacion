@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+{% block title %}Registro | Flask Auth Empleados{% endblock %}
+
+{% block content %}
+<section class="single-card-layout">
+    <article class="form-card">
+        
+        <h1>Registra un empleado</h1>
+ 
+        {% if error %}
+            <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form action="{{ url_for('registro') }}" method="post" class="form-grid">
+            <div class="field field-full">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre de empleado" required>
+            </div>
+
+            <div class="field field-full">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="empleado@dam.es" required>
+            </div>
+
+            <div class="field field-full">
+                <label for="id_sede">Sede</label>
+                <select name="id_sede" id="id_sede" required>
+                    {% for sede in sedes %}
+                        <option value="{{ sede.id }}">{{ sede.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="field field-full">
+                <label for="passwd">Contrase�a</label>
+                <input type="password" name="passwd" id="passwd" placeholder="Contrase�a" required>
+            </div>
+
+            <div class="field field-full actions-row">
+                <button type="submit" class="btn btn-primary">Registrar empleado</button>
+                <a class="btn btn-secondary" href="{{ url_for('login') }}">Volver al login</a>
+            </div>
+        </form>
+    </article>
+</section>  
+{% endblock %}

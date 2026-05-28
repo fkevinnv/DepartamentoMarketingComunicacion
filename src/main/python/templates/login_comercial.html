@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/alertas.js') }}"></script>
+    <title>Login - Marketing Comunicacion</title>
+</head>
+<body>
+    <h1>Departamento de Marketing y comunicacion</h1>
+    <h2>INICIAR SESI&Oacute;N</h2>
+
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+        <script>mostrarError("{{ error }}")</script>
+    {% endif %}
+
+    <form method="post" action="/controlador/LoginControlador">
+        <h3>Nombre usuario o correo:</h3>
+        <input type="text" name="user" required><br>
+        <h3>Contrase&ntilde;a:</h3>
+        <input type="password" name="passwd" required><br>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <br>
+    <a href="/registro">�No tienes cuenta? Reg�strate</a>
+    <br>
+    <a href="http://localhost:8080/DepartamentoMarketingComunicacion/index.jsp">Volver a inicio</a>
+</body>
+</html>

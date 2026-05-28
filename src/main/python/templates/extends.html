@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Inicia sesion {% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <article class="dashboard-card main-dashboard-card">
+        <span class="eyebrow">Sesión iniciada</span>
+        <h1>Login correcto</h1>
+        <p>Has iniciado sesión correctamente</p>
+
+        <div class="session-box">
+            <p><strong>Usuario:</strong> {{ usuario }}</p>
+            <p><strong>Roles:</strong> {{ roles }}</p>
+        </div>
+
+        <div class="button-group">
+            <a class="btn btn-primary" href="{{ url_for('registro') }}">Registrar empleado</a>
+            <a class="btn btn-admin" href="{{ url_for('protegida') }}">Ruta protegida admin</a>
+            <a class="btn btn-danger" href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+    </article>
+</section>
+{% endblock %}

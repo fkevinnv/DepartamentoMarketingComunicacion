@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Ruta protegida | Flask Auth Empleados{% endblock %}
+
+{% block content %}
+<section class="single-card-layout">
+    <article class="protected-card">
+        <div class="status-pill success">Acceso permitido</div>
+        <h1>Ruta protegida de administración</h1>
+        <p>
+            Esta vista representa la ruta <code>/protegida</code>, pensada para ser invocada
+            desde el botón <strong>PROTEGIDA ADMIN 2</strong> del proyecto JSP.
+        </p>
+
+        <div class="session-box">
+            <p><strong>Usuario:</strong> {{ usuario }}</p>
+            <p><strong>Rol:</strong> {{ rol }}</p>
+        </div>
+
+        <div class="button-group centered">
+            <a class="btn btn-primary" href="{{ url_for('index') }}">Volver al inicio Flask</a>
+            <a class="btn btn-danger" href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+    </article>
+</section>
+{% endblock %}

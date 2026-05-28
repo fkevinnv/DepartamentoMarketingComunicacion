@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/alertas.js') }}"></script>
+    <title>Registro - Marketing Comunicacion</title>
+</head>
+<body>
+
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+        <script>mostrarError("{{ error }}")</script>
+    {% endif %}
+
+    {% if exito %}
+        <script>mostrarExito("{{ exito }}")</script>
+
+    {% endif %}
+
+    <h1>Departamento de Marketing y Comunicaci&oacute;n</h1>
+    <h2>CREA TU CUENTA</h2>
+    <!--Formulario de regustro-->
+    <form method="post" action="/registro">
+        <h3>Nombre:</h3>
+        <input type="text" name="nombre" required><br>
+        <h3>Apellidos:</h3>
+        <input type="text" name="apellidos" required><br>
+        <h3>Correo:</h3>
+        <input type="email" name="email" required><br>
+        <h3>Contraseña:</h3>
+        <input type="password" name="passwd" required><br>
+
+        <button type="submit">REGISTRARSE</button>
+    </form>
+    <br>
+    <a href="/controlador/LoginControlador">Tienes una cuenta? Inicia sesion</a>
+    <br>
+    <a href="http://localhost:8080/DepartamentoMarketingComunicacion/index.jsp">Volver a inicio</a>
+</body>
+</html>

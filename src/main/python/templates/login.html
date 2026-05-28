@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block title %}Iniciar Sesión - Marketing y
+Comunicación{% endblock %} {% block content %}
+<link rel="stylesheet" href="/static/css/login.css">
+
+<div class="contenedor-centrado">
+	<div class="mensaje-box">
+		<h2>INICIA SESI&Oacute;N</h2>
+
+		<form action="/login" method="POST">
+
+			<label for="user">Usuario / Correo:</label> <input type="text"
+				id="user" name="user" required placeholder="Introduce tu usuario">
+
+			<label for="passwd">Contraseña:</label>
+			<div class="campo-contrasena">
+				<input type="password" id="passwd" name="passwd" required
+					placeholder="••••••••"> <span id="mostrar"
+					onclick="mostrarContrasena()">mostrar</span>
+			</div>
+			{% if error %}
+			<p class="error">{{ error }}</p>
+			{% endif %}
+
+			<button type="submit">Iniciar Sesi&oacute;n</button>
+		</form>
+	</div>
+</div>
+
+<script src="/static/js/alertas.js"></script>
+{% endblock %}
