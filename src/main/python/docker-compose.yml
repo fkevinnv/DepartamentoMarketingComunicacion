@@ -1,0 +1,29 @@
+services:
+  flaskapp:
+    image: python:3.12-slim-bookworm
+    working_dir: /DepartamentoMarketingComunicacion/src/main/python
+    volumes:
+      - .:/DepartamentoMarketingComunicacion/src/main/python
+    env_file:
+      - .env
+    ports:
+      - "4999:4999"
+    command: sh -c "pip install --no-cache-dir -r requirements.txt && python login.py"
+    restart: unless-stopped
+
+  db-users:
+    image: postgres:16
+
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "4998:5432"  
+     
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
